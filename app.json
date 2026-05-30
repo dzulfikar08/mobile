@@ -2,7 +2,7 @@
   "expo": {
     "name": "Muxy",
     "slug": "muxy-mobile",
-    "version": "0.3.1",
+    "version": "0.4.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "muxy",
@@ -10,26 +10,35 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.muxy.app",
+      "bundleIdentifier": "com.dzulfikar08.muxy",
       "infoPlist": {
         "NSLocalNetworkUsageDescription": "Muxy connects to your desktop on the local network to control its terminal sessions.",
         "NSAppTransportSecurity": {
           "NSAllowsLocalNetworking": true
         },
-        "NSBonjourServices": ["_muxy._tcp"],
+        "NSBonjourServices": [
+          "_muxy._tcp"
+        ],
+        "NSMicrophoneUsageDescription": "Muxy uses the microphone for voice commands to control your terminal sessions remotely.",
+        "NSSpeechRecognitionUsageDescription": "Muxy needs speech recognition to transcribe your voice commands into terminal input.",
+        "NSPhotoLibraryUsageDescription": "Muxy does not access your photo library. This permission is listed to satisfy App Store requirements.",
         "ITSAppUsesNonExemptEncryption": false
       },
-      "buildNumber": "1"
+      "buildNumber": "11"
     },
     "android": {
-      "package": "com.muxy.app",
+      "package": "com.dzulfikar08.muxy",
       "adaptiveIcon": {
         "backgroundColor": "#0B0B0B",
         "foregroundImage": "./assets/images/android-icon-foreground.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "versionCode": 3
+      "versionCode": 3,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "output": "static",
@@ -65,11 +74,25 @@
             "usesCleartextTraffic": true
           }
         }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Muxy uses the microphone for voice commands to control your terminal sessions remotely.",
+          "speechRecognitionPermission": "Muxy needs speech recognition to transcribe your voice commands into terminal input."
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b0655d9e-5729-4c14-9be6-bd02ff722e18"
+      }
+    },
+    "owner": "dzulfikar08"
   }
 }

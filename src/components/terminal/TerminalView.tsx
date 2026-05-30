@@ -17,6 +17,7 @@ import {
 } from '@/state';
 import { useTokens } from '@/theme';
 
+import { VoiceButton } from '@/voice/components/VoiceButton';
 import { buildTerminalTheme } from './buildTerminalTheme';
 import { KeyBar, transformWithModifiers } from './KeyBar';
 import {
@@ -284,7 +285,10 @@ export function TerminalView({ paneId, onNewTerminal, onSelectTabShortcut }: Pro
       </View>
 
         {sessionForUs?.kind === 'streaming' ? (
-          <KeyBar onBytes={handleKeyBarBytes} />
+          <>
+            <KeyBar onBytes={handleKeyBarBytes} />
+            <VoiceButton paneId={paneId} />
+          </>
         ) : null}
       </Animated.View>
     </View>
